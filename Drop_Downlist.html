@@ -1,0 +1,42 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class DropDown {
+    public static void main(String[] args) throws InterruptedException{
+
+        ChromeOptions Options = new ChromeOptions();
+        Options.addArguments("....remote....allow-Origins=*");
+
+        ChromeDriver driver = new ChromeDriver(Options);
+
+        driver.get("https://trytestingthis.netlify.app/");
+
+        driver.manage().window().maximize();
+
+        //finding the element by using id
+        WebElement Select = driver.findElement(By.id("OWC"));
+
+        //Selecting the elements options
+        Select Select1 = new Select(Select);
+
+        //Selecting using the index
+
+        Select1.selectByIndex(1);
+        Thread.sleep(1000);
+
+        //selecting using value
+        Select1.selectByValue("option2");
+        Thread.sleep(1000);
+        Select1.selectByValue("option 3");
+        Thread.sleep(1000);
+
+        // deselecting the option
+        Select1.deselectByVisibleText("option3");
+        Thread.sleep(1000);
+        driver.close();
+}
+}

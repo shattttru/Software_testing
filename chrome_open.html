@@ -1,0 +1,16 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class chrome_open {
+    public static WebDriver driver;
+
+    public static void main(String[] args) {
+        System.setProperty("webdriver","C:\\chromedriver-win32\\chromedriver.exe");
+
+        ChromeDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://github.com/shattttru");
+        System.out.println(driver.getTitle());
+        driver.quit();
+    }
+}

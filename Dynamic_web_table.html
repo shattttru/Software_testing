@@ -1,0 +1,33 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import java.util.List;
+
+public class DynamicWebTables {
+
+     public static void main(String args[]) throws  InterruptedException
+     {
+         ChromeOptions options = new ChromeOptions();
+         options.addArguments("--remote--allow-origins");
+
+         ChromeDriver driver = new ChromeDriver(options);
+
+         //WebDriver driver = new ChromeDriver();
+
+         driver.manage().window().maximize();
+         driver.get("http://seleniumpractise.blogspot.com/2021/08");
+
+         //finding table by using xpath
+         List<WebElement> allHeaders=driver.findElements(By.xpath("//table[contains(@id,'customer')]//th"));
+
+         System.out.println(allHeaders.size());
+
+         for (WebElement web:allHeaders) {
+             String value = web.getText();
+             System.out.println(value);
+         }
+
+     }
+}

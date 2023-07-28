@@ -1,0 +1,43 @@
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class AleartDemo {
+    public static void main(String args[]) throws
+            NoAlertPresentException,InterruptedException
+    {
+     ChromeOptions options = new ChromeOptions();
+     options.addArguments("--remote--allow-origins=*");
+
+        ChromeDriver driver = new ChromeDriver(options);
+
+        //WebDriver driver = new ChromeDriver();
+         driver.manage().window().maximize();
+         driver.get("https://demo.guru99.com/test/delete_customer.php");
+       // driver.get("https://shattttru.github.io/DataWebsite-/");
+
+         driver.findElement(By.name("cusid")).sendKeys("53929");
+         driver.findElement(By.name("submit")).submit();
+
+         // Switching to Alert
+        Alert alert = driver.switchTo().alert();
+
+        //Capturing alert message
+        String alertMessage = driver.switchTo().alert().getText();
+
+        //Displaying alert Message
+        System.out.println(alertMessage);
+        Thread.sleep(1000);
+
+        //Accepting alert
+        alert.accept();
+
+        //System.out.println(alertMessage);
+
+
+
+    }
+
+}
