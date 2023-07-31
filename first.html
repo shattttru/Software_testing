@@ -1,10 +1,24 @@
-import org.openqa.selenium.chrome.ChromeDriver;
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Mywebsite</title>
+</head>
+<body>
+	<h1>welcome to website</h1>
+	
+	<%
+	String fname =request.getParameter("fname");
+	response.getWriter().println("FirstName:"+fname);
+	
+	String lname =request.getParameter("lname");
+	response.getWriter().println("LastName:"+lname);
 
-public class first {
-    public static void main(String[] args) {
-        System.setProperty("webdriver","C:\\chromedriver_win32\\chromedriver.exe");
-
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://youtube.com");
-}
-}
+	String address =request.getParameter("address");
+	response.getWriter().println("Address:"+address);
+	
+	%>
+</body>
+</html>
