@@ -1,0 +1,28 @@
+: write a test script to select radio button
+code:
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Radiobtn {
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("Welcome");
+
+        System.setProperty("Webdriver.Chrome.Driver", "C:\\Users\\Admin\\Documents\\S.t softwares\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("file:///D:/sem5/Software%20Testing/webpages/radiobtn.html");
+
+        WebElement radio = driver.findElement(By.xpath("//input[@id='Male']"));
+        radio.click();
+        Thread.sleep(1000);
+        WebElement radio1 = driver.findElement(By.xpath("//input[@id='Female']"));
+        radio1.click();
+        Thread.sleep(1000);
+        driver.close();
+
+    }
+
+}
